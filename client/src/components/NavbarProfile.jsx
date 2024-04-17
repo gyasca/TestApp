@@ -70,7 +70,7 @@ export function NavbarProfile() {
                   
                     { user.account_type == "hr" && 
                     <ListItem key={"Admin Panel"} disablePadding>
-                        <ListItemButton component={Link} to="/admin/users" onClick={() => setIsPopoverOpen(false)}>
+                        <ListItemButton component={Link} to="/admin/panel" onClick={() => setIsPopoverOpen(false)}>
                             <ListItemIcon><AdminPanelSettingsIcon /></ListItemIcon>
                             <ListItemText primary={"HR Panel"} />
                         </ListItemButton>
