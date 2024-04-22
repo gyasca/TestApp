@@ -94,18 +94,15 @@ function ViewEmployees() {
         <Table>
           <TableHead>
             <TableRow>
+              <TableCell>Action</TableCell>
               <TableCell>Name</TableCell>
               <TableCell>Email</TableCell>
               <TableCell>Title</TableCell>
-              <TableCell>Action</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
             {employeeList.map((employee) => (
               <TableRow key={employee.id}>
-                <TableCell>{employee.first_name} {employee.last_name}</TableCell>
-                <TableCell>{employee.email}</TableCell>
-                <TableCell>{employee.title}</TableCell>
                 <TableCell>
                   <IconButton
                     onClick={() => handleEdit(employee.id)}
@@ -120,6 +117,9 @@ function ViewEmployees() {
                     <Delete />
                   </IconButton>
                 </TableCell>
+                <TableCell>{employee.first_name} {employee.last_name}</TableCell>
+                <TableCell>{employee.email}</TableCell>
+                <TableCell>{employee.title}</TableCell>
               </TableRow>
             ))}
           </TableBody>

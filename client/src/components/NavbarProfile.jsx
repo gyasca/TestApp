@@ -20,7 +20,7 @@ export function NavbarProfile() {
 
     function handlePopoverOpen(event) {
         setAnchorEl(event.currentTarget);
-        console.log(user)
+        // console.log(user);
         setIsPopoverOpen(true);
     }
 
@@ -77,7 +77,7 @@ export function NavbarProfile() {
                     </ListItem> }
                     { user.account_type == "hr" && 
                     <ListItem key={"Register new employee"} disablePadding>
-                        <ListItemButton component={Link} to="/register" onClick={() => setIsPopoverOpen(false)}>
+                        <ListItemButton component={Link} to="/admin/register" onClick={() => setIsPopoverOpen(false)}>
                             <ListItemIcon><BadgeIcon /></ListItemIcon>
                             <ListItemText primary={"Register new employee"} />
                         </ListItemButton>

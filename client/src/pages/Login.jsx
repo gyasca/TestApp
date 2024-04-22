@@ -89,7 +89,7 @@ function Login() {
                   const userData = userRes.data.data;
                   console.log("User data to set into user:", userData);
                   setUser(userData);
-                  console.log("User data successfully set into user:", user);
+                  // console.log("User data successfully set into user:", user);
                   navigate("/");
                 })
                 .catch((error) => {

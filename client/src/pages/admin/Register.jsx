@@ -11,10 +11,10 @@ import { useFormik } from "formik";
 import * as yup from "yup";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import http from "../http";
+import http from "../../http";
 import { jwtDecode } from "jwt-decode";
 import { useNavigate } from "react-router-dom";
-import { UserContext } from "../main";
+import { UserContext } from "../../main";
 
 function Register() {
   const { setUser } = useContext(UserContext);

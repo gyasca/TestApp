@@ -12,7 +12,7 @@ function AdminPanelLanding() {
         marginTop: '5rem',
       }}
     >
-      <Typography sx={{ marginBottom: '2rem', fontSize: '5rem' }}>
+      <Typography sx={{ marginBottom: '2rem', fontSize: '3rem', textAlign: 'center' }}>
         Admin Panel Landing Page
       </Typography>
       <Button
@@ -20,16 +20,17 @@ function AdminPanelLanding() {
         to="/admin/employees"
         variant="contained"
         color="primary"
-        sx={{ marginBottom: '1rem', width: '80%', height: '100px', fontSize: '2.5rem' }}
+        // sx={{ marginBottom: '1rem', width: '80%', height: '100px', fontSize: '2.5rem' }}
       >
         View Employees
       </Button>
+      <br />
       <Button
         component={Link}
-        to="/register"
+        to="/admin/register"
         variant="contained"
         color="primary"
-        sx={{ marginBottom: '1rem', width: '80%', height: '100px', fontSize: '2.5rem' }}
+        // sx={{ marginBottom: '1rem', width: '80%', height: '100px', fontSize: '2.5rem' }}
         >
         Register New Employee
       </Button>

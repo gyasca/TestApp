@@ -3,7 +3,6 @@ import { Route, Routes, Navigate } from 'react-router-dom'
 import NotFound from './errors/NotFound'
 import App from './App'
 import Login from './Login'
-import Register from './Register'
 // import Login from './Login'
 // import Register from './Register'
 // import Verify from './Verify'
@@ -35,7 +34,7 @@ function UserRoutes() {
             <Route path='*' element={<NotFound />} />
             <Route path="/" element={<App />} />
             <Route path="/login" element={<Login />} />
-            <Route path="/register" element={<Register />} />
+            {/* <Route path="/register" element={<Register />} /> */}
             {/* <Route path="/login" element={!user ? <Login /> : <Navigate to={"/"} />} />
             <Route path="/register" element={!user ? <Register /> : <Navigate to={"/"} />} />
             <Route path="/test" element={<Test />} />
