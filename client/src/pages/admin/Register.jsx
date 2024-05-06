@@ -33,6 +33,7 @@ function Register() {
       title: "",
       description: "",
       mobile_number: "",
+      role: "",
     },
     validationSchema: yup.object({
       first_name: yup.string().trim().required("First name is required"),
@@ -51,16 +52,37 @@ function Register() {
       mobile_number: yup.string().trim().required("Mobile number is required"),
     }),
     onSubmit: (data) => {
-      console.log("Form submitted with form data as follows (Unprocessed version):", data);
+      console.log(
+        "Form submitted with form data as follows (Unprocessed version):",
+        data
+      );
 
       if (data.password === "custom") {
         // Set the password to the value of customPassword field
         data.password = data.customPassword;
       }
-    
+
+
+      if (data.account_type == "hr") {
+        data.role = "F9DD5027-7963-4381-8E46-EF757A67BC14"
+      } else if (data.account_type == "employee") {
+        data.role = "FD13C789-7DE3-48D8-9DC9-66DC353F30FD"
+      }
+
       data.first_name = data.first_name.trim();
       data.last_name = data.last_name.trim();
+
       data.email = data.email.trim().toLowerCase();
+      const personalEmail = data.email;
+
+      if (data.account_type === "hr") {
+        const emailParts = data.email.split("@");
+        if (emailParts.length === 2) {
+          const companyEmail = `${emailParts[0]}@testapp.hr.com`;
+          data.email = companyEmail;
+        }
+      }
+
       data.password = data.password.trim();
       data.account_type = data.account_type;
       data.avatar = data.avatar;
@@ -75,7 +97,28 @@ function Register() {
       http
         .post("/users", data)
         .then((res) => {
-          console.log("Response from post/users (res.data.data):", res.data.data);
+          console.log(
+            "Response from post/users (res.data.data):",
+            res.data.data
+          );
+
+          if (data.account_type === "hr") {
+            // Create an employee account alongside the HR account
+            // First, we need to convert all HR Constants into employee values (Account type, role)
+            data.account_type = "employee";
+            data.email = personalEmail;
+            data.role = "FD13C789-7DE3-48D8-9DC9-66DC353F30FD"
+            console.log("Data before second post: ", data);
+
+            http.post("/users", data).then((employeeResponse) => {
+              console.log("employeeResponse object:", employeeResponse);
+              console.log(
+                "Employee account created:",
+                employeeResponse.data.data
+              );
+            });
+          }
+
           navigate("/");
           // if (res.data.data && res.data.data.access_token) {
           //   const accessToken = res.data.data.access_token;
@@ -162,7 +205,7 @@ function Register() {
           fullWidth
           margin="dense"
           autoComplete="off"
-          label="Email"
+          label="Personal email"
           name="email"
           value={formik.values.email}
           onChange={formik.handleChange}
@@ -201,9 +244,7 @@ function Register() {
           select
           sx={{ marginY: "1rem" }}
         >
-          <MenuItem value="directus">
-            Default password: directus
-          </MenuItem>
+          <MenuItem value="directus">Default password: directus</MenuItem>
           <MenuItem value="custom">Custom Password</MenuItem>
         </TextField>
 

@@ -22,6 +22,7 @@ function AdminRoutes() {
             console.log(isAdmin);
             if (!isAdmin) {
                 enqueueSnackbar("You must be an HR Personnel to view this page", { variant: "error" });
+                console.log("You must be an HR Personnel to view this page");
                 navigate("/");
             }
         })

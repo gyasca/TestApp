@@ -48,6 +48,7 @@ function EditEmployee() {
       title: employeeData?.title || "",
       description: employeeData?.description || "",
       mobile_number: employeeData?.mobile_number || "",
+      role: employeeData?.role || "",
     },
     enableReinitialize: true,
     validationSchema: yup.object({

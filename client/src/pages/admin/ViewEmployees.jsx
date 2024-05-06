@@ -57,7 +57,7 @@ function ViewEmployees() {
 
   const confirmDeleteEmployee = () => {
     http
-      .delete(`/directus/items/directus_users/${deleteEmployeeId}`)
+      .delete(`/users/${deleteEmployeeId}`)
       .then((res) => {
         console.log(res.data);
         // Update the employee list after successful deletion
@@ -98,6 +98,8 @@ function ViewEmployees() {
               <TableCell>Name</TableCell>
               <TableCell>Email</TableCell>
               <TableCell>Title</TableCell>
+              <TableCell>Account Type</TableCell>
+              <TableCell>Role UUID</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -120,6 +122,8 @@ function ViewEmployees() {
                 <TableCell>{employee.first_name} {employee.last_name}</TableCell>
                 <TableCell>{employee.email}</TableCell>
                 <TableCell>{employee.title}</TableCell>
+                <TableCell>{employee.account_type}</TableCell>
+                <TableCell>{employee.role}</TableCell>
               </TableRow>
             ))}
           </TableBody>

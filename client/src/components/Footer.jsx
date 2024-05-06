@@ -8,7 +8,7 @@ import PersonIcon from '@mui/icons-material/Person';
 
 export function Footer() {
   return (
-    <Box position="fixed" bottom={0} width="100%" bgcolor="#f0f0f0" boxShadow="0px -2px 8px rgba(0, 0, 0, 0.1)">
+    <Box position="fixed" bottom={0} width="100%" bgcolor="#f0f0f0" boxShadow="0px -2px 8px rgba(0, 0, 0, 0.1)" zIndex={99999}>
       <Grid container justifyContent="space-around" alignItems="center" padding={0}>
         <Grid item>
           <Button variant="text" color="primary" sx={{ width: '100%', height: '100%', flexDirection: 'column', alignItems: 'center', fontSize: '0.8rem' }}>
