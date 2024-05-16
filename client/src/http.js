@@ -9,7 +9,7 @@ const instance = axios.create({
     },
 });
 
-// Add a request interceptor
+// Add a request interceptor (Directus)
 instance.interceptors.request.use(function (config) {
     // Do something before request is sent
     // console.log("token from request interceptor: ",accessToken);
@@ -23,6 +23,21 @@ instance.interceptors.request.use(function (config) {
     // Do something with request error
     return Promise.reject(error);
 });
+
+// // Add a request interceptor (NocoDB)
+// instance.interceptors.request.use(function (config) {
+//     // Do something before request is sent
+//     // console.log("token from request interceptor: ",accessToken);
+//     let accessToken = localStorage.getItem("accessToken");
+//     if (accessToken) {
+//         config.headers["xc-auth"] = `${accessToken}`;
+//         // config.headers["Authorization"] = `Bearer fwDFO2SLaVtuexfC7dC5adbcBFbgCOoC`;
+//     }
+//     return config;
+// }, function (error) {
+//     // Do something with request error
+//     return Promise.reject(error);
+// });
 
 // Add a response interceptor
 instance.interceptors.response.use(function (response) {

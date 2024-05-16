@@ -5,6 +5,7 @@ import AdminPanelLanding from "./AdminPanelLanding";
 import ViewEmployees from "./ViewEmployees";
 import EditEmployee from "./EditEmployee";
 import Register from './Register';
+import ViewLeave from './ViewLeave';
 import { UserContext } from "../../main";
 import { useSnackbar } from 'notistack'
 import { validateAdmin } from '../../functions/user';
@@ -41,6 +42,7 @@ function AdminRoutes() {
       <Route path={"/employees"} element={<ViewEmployees />} />
       <Route path={"/employees/edit/:id"} element={<EditEmployee />} />
       <Route path={"/register"} element={<Register />} />
+      <Route path={"/leaverequests"} element={<ViewLeave />} />
     </Routes>
   );
 }
